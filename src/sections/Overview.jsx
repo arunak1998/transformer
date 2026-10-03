@@ -61,7 +61,7 @@ export default function Overview() {
       num="00"
       kicker="The big picture"
       title="One sentence in, one sentence out"
-      lead="A Transformer (Vaswani et al., 2017, “Attention Is All You Need”) is a stack of simple blocks. Its secret is one idea: let every token look at every other token and decide what matters."
+      lead="A Transformer is a stack of simple blocks. Its secret is one idea: let every token look at every other token and decide what matters."
     >
       <Architecture />
       <p className="hint">Data flows upward. Click any box to jump to its explanation. Pink-edged boxes are attention.</p>

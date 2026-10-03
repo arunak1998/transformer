@@ -352,7 +352,7 @@ h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; letter-spacing: -0
 @media (max-width: 640px) { .takeaways { grid-template-columns: 1fr; } }
 .takeaway { display: flex; gap: 10px; align-items: flex-start; padding: 12px 14px; border-radius: 12px; background: rgba(0,0,0,.25); font-size: 0.92rem; color: #d5d8ee; }
 .takeaway span { color: var(--lime); font-weight: 800; }
-.footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; max-width: 1060px; margin: 60px auto 0; padding: 26px 24px 40px; border-top: 1px solid var(--panel-border); font-size: 0.85rem; }
+.footer { text-align: center; max-width: 1060px; margin: 60px auto 0; padding: 26px 24px 40px; border-top: 1px solid var(--panel-border); font-size: 0.85rem; color: var(--muted); }
 .flow-row .matrix-wrap + .op { min-width: 24px; }
 
 /* ---------- simplified visuals ---------- */

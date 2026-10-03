@@ -43,8 +43,7 @@ export default function App() {
         <Recap />
       </main>
       <footer className="footer">
-        <span>How Transformers Work</span>
-        <span className="muted">Based on “Attention Is All You Need” (Vaswani et al., 2017)</span>
+        Based on “Attention Is All You Need”
       </footer>
     </>
   )

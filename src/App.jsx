@@ -12,17 +12,17 @@ import Generation from './sections/Generation'
 import Recap from './sections/Recap'
 
 const NAV = [
-  { id: 'top', label: 'Start' },
-  { id: 'overview', label: 'Big picture' },
-  { id: 'tokenizer', label: 'Tokenizer' },
-  { id: 'embeddings', label: 'Embeddings' },
-  { id: 'positional', label: 'Positions' },
-  { id: 'attention', label: 'Q · K · V' },
-  { id: 'multihead', label: 'Multi-head' },
-  { id: 'encoder', label: 'Encoder' },
-  { id: 'decoder', label: 'Decoder' },
-  { id: 'generation', label: 'Generation' },
-  { id: 'recap', label: 'Recap' },
+  { id: 'top', num: '✦', label: 'Start' },
+  { id: 'overview', num: '00', label: 'Big picture' },
+  { id: 'tokenizer', num: '01', label: 'Tokenizer' },
+  { id: 'embeddings', num: '02', label: 'Embeddings' },
+  { id: 'positional', num: '03', label: 'Positions' },
+  { id: 'attention', num: '04', label: 'Q · K · V' },
+  { id: 'multihead', num: '05', label: 'Multi-head' },
+  { id: 'encoder', num: '06', label: 'Encoder' },
+  { id: 'decoder', num: '07', label: 'Decoder' },
+  { id: 'generation', num: '08', label: 'Generation' },
+  { id: 'recap', num: '09', label: 'Recap' },
 ]
 
 export default function App() {

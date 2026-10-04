@@ -1,4 +1,5 @@
 import HeroDemo from '../components/HeroDemo'
+import { QUESTIONS } from '../lib/interviewQuestions'
 
 const CHAPTERS = [
   ['01', 'Tokenizer', 'tokenizer'],
@@ -9,6 +10,7 @@ const CHAPTERS = [
   ['06', 'Encoder', 'encoder'],
   ['07', 'Decoder', 'decoder'],
   ['08', 'Generation', 'generation'],
+  ['★', 'Interview prep', 'interview'],
 ]
 
 export default function Hero() {
@@ -38,7 +40,7 @@ export default function Hero() {
           <div className="hero-stats">
             <div><b>8</b><span>chapters</span></div>
             <div><b>15+</b><span>interactive demos</span></div>
-            <div><b>1</b><span>sentence to follow</span></div>
+            <div><b>{QUESTIONS.length}</b><span>interview questions</span></div>
           </div>
         </div>
 

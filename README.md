@@ -18,6 +18,7 @@ Follow one sentence, **"The cat licked its paw"**, from raw text to the next pre
 | 07 | **Decoder** | Watch it translate "the cat sleeps" into French one word at a time, with masking and cross-attention |
 | 08 | **Generation** | Softmax with a temperature slider, greedy picking vs sampling, and the generation loop |
 | 09 | **Recap** | The whole journey on one page |
+| 10 | **Interview prep** | 22 common interview questions with one-line answers, a formula cheat sheet, topic filters and a random-question practice mode |
 
 Each chapter also has a collapsed **"For the curious"** box with the real formulas and editable matrices.
 
@@ -69,3 +70,7 @@ src/
 ## Reference
 
 Vaswani et al., [*Attention Is All You Need*](https://arxiv.org/abs/1706.03762), 2017.
+
+---
+
+Prepared by **Arunkumar Ravichandran**.

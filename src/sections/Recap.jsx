@@ -56,7 +56,10 @@ export default function Recap() {
           ))}
         </div>
 
-        <a className="btn big" href="#top">↑ Back to the start</a>
+        <div className="finale-cta">
+          <a className="btn big" href="#interview">Practice interview questions →</a>
+          <a className="btn ghost big" href="#top">↑ Back to the start</a>
+        </div>
       </div>
     </Section>
   )

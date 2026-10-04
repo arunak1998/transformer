@@ -10,6 +10,7 @@ import EncoderBlock from './sections/EncoderBlock'
 import Decoder from './sections/Decoder'
 import Generation from './sections/Generation'
 import Recap from './sections/Recap'
+import InterviewPrep from './sections/InterviewPrep'
 
 const NAV = [
   { id: 'top', num: '✦', label: 'Start' },
@@ -23,6 +24,7 @@ const NAV = [
   { id: 'decoder', num: '07', label: 'Decoder' },
   { id: 'generation', num: '08', label: 'Generation' },
   { id: 'recap', num: '09', label: 'Recap' },
+  { id: 'interview', num: '10', label: 'Interview prep' },
 ]
 
 export default function App() {
@@ -41,9 +43,13 @@ export default function App() {
         <Decoder />
         <Generation />
         <Recap />
+        <InterviewPrep />
       </main>
       <footer className="footer">
-        Based on “Attention Is All You Need”
+        <div className="footer-by">
+          Prepared by <b>Arunkumar Ravichandran</b>
+        </div>
+        <div className="footer-note">Based on “Attention Is All You Need”</div>
       </footer>
     </>
   )

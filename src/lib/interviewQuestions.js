@@ -227,14 +227,76 @@ export const QUESTIONS = [
   },
 ]
 
-// Short, high-value facts to revise right before an interview.
+// Formula cheat sheet. Each formula is broken into simple steps (read left to right).
 export const CHEAT_SHEET = [
-  { title: 'Attention', tex: '\\text{softmax}\\!\\Big(\\tfrac{QK^{\\top}}{\\sqrt{d_k}}\\Big)V', note: 'match queries to keys, mix values' },
-  { title: 'Multi-head', tex: '\\text{Concat}(\\text{head}_1..\\text{head}_h)\\,W^O', note: 'h heads, each of size d_model / h' },
-  { title: 'Feed-forward', tex: '\\max(0,\\,xW_1+b_1)\\,W_2+b_2', note: 'per token, hidden size ≈ 4 × d_model' },
-  { title: 'Encoder block', tex: '\\text{LN}(x+\\text{Attn}(x)) \\rightarrow \\text{LN}(h+\\text{FFN}(h))', note: 'residual + LayerNorm around each sub-layer' },
-  { title: 'Positional encoding', tex: '\\sin\\!\\big(pos/10000^{2i/d}\\big),\\ \\cos(\\cdot)', note: 'gives the model word order' },
-  { title: 'Cost', tex: 'O(n^2 \\cdot d)', note: 'quadratic in sequence length n' },
+  {
+    icon: '🔎', title: 'Attention',
+    words: 'Every word compares its question with every other word’s label, turns the scores into percentages, and mixes in their information.',
+    steps: [
+      { sym: 'Q · Kᵀ', meaning: 'match scores' },
+      { sym: '÷ √dₖ', meaning: 'scale down' },
+      { sym: 'softmax', meaning: 'turn into %' },
+      { sym: '× V', meaning: 'mix information' },
+    ],
+    tex: '\\text{Attention}(Q,K,V)=\\text{softmax}\\!\\Big(\\tfrac{QK^{\\top}}{\\sqrt{d_k}}\\Big)V',
+    remember: 'Q = what I look for · K = what I offer · V = what I give.',
+  },
+  {
+    icon: '🕵️', title: 'Multi-head attention',
+    words: 'Run several attentions side by side, each looking for a different clue, then combine their results.',
+    steps: [
+      { sym: 'h heads', meaning: 'run in parallel' },
+      { sym: 'Concat', meaning: 'glue results' },
+      { sym: '× Wᴼ', meaning: 'mix into one' },
+    ],
+    tex: '\\text{MultiHead}(X)=\\text{Concat}(\\text{head}_1,\\dots,\\text{head}_h)\\,W^{O}',
+    remember: 'Original model: 8 heads × 64 numbers each = 512.',
+  },
+  {
+    icon: '🧠', title: 'Feed-forward network',
+    words: 'A small two-layer network that “thinks” about each word on its own.',
+    steps: [
+      { sym: '× W₁', meaning: 'expand 512 → 2048' },
+      { sym: 'ReLU', meaning: 'negatives → 0' },
+      { sym: '× W₂', meaning: 'shrink back to 512' },
+    ],
+    tex: '\\text{FFN}(x)=\\max(0,\\;xW_1+b_1)\\,W_2+b_2',
+    remember: 'Same network for every word. It holds most of the parameters.',
+  },
+  {
+    icon: '🧱', title: 'Encoder block',
+    words: 'Words share information, then each one thinks. After each step, keep the original and tidy the numbers.',
+    steps: [
+      { sym: 'Attention', meaning: 'share' },
+      { sym: 'Add & Norm', meaning: 'keep + tidy' },
+      { sym: 'Feed-forward', meaning: 'think' },
+      { sym: 'Add & Norm', meaning: 'keep + tidy' },
+    ],
+    tex: 'h=\\text{LN}\\big(x+\\text{Attn}(x)\\big),\\quad \\text{out}=\\text{LN}\\big(h+\\text{FFN}(h)\\big)',
+    remember: 'Shape in = shape out, so blocks stack. The original model stacks 6.',
+  },
+  {
+    icon: '📍', title: 'Positional encoding',
+    words: 'Give every position a unique pattern of waves, and add it to the word so the model knows the order.',
+    steps: [
+      { sym: 'pos', meaning: 'word position' },
+      { sym: 'sin / cos', meaning: 'waves, fast → slow' },
+      { sym: '+ word', meaning: 'add to embedding' },
+    ],
+    tex: 'PE_{(pos,2i)}=\\sin\\!\\big(pos/10000^{2i/d}\\big),\\quad PE_{(pos,2i+1)}=\\cos(\\cdot)',
+    remember: 'Without it, “dog bites man” = “man bites dog”.',
+  },
+  {
+    icon: '⏱️', title: 'Cost of attention',
+    words: 'Every word is compared with every other word, so the work grows with the square of the text length.',
+    steps: [
+      { sym: 'n words', meaning: 'text length' },
+      { sym: 'n × n', meaning: 'every pair compared' },
+      { sym: '× d', meaning: 'numbers per word' },
+    ],
+    tex: 'O(n^2 \\cdot d)',
+    remember: 'Double the text → 4× the attention work.',
+  },
 ]
 
 export const TIPS = [

@@ -8,13 +8,26 @@ const ALL = 'All'
 function CheatSheet() {
   return (
     <div className="panel">
-      <h4>⚡ Cheat sheet: revise this right before the interview</h4>
+      <h4>⚡ Formula cheat sheet</h4>
+      <p className="muted">Every formula, read left to right as simple steps. Learn the steps first; the formula is just the short way to write them.</p>
       <div className="cheat">
         {CHEAT_SHEET.map((c) => (
           <div key={c.title} className="cheat-card">
-            <div className="cheat-title">{c.title}</div>
-            <Tex>{c.tex}</Tex>
-            <div className="cheat-note">{c.note}</div>
+            <div className="cheat-title"><span>{c.icon}</span>{c.title}</div>
+            <p className="cheat-words">{c.words}</p>
+            <div className="cheat-steps">
+              {c.steps.map((step, i) => (
+                <div key={i} className="cheat-step-wrap">
+                  {i > 0 && <span className="cheat-arrow" aria-hidden="true">{"→"}</span>}
+                  <div className="cheat-step">
+                    <span className="cheat-sym">{step.sym}</span>
+                    <span className="cheat-meaning">{step.meaning}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="cheat-formula"><Tex>{c.tex}</Tex></div>
+            <div className="cheat-remember"><b>Remember:</b> {c.remember}</div>
           </div>
         ))}
       </div>
